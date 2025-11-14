@@ -1,0 +1,24 @@
+{
+  "sensitivity": 0.40,
+  "mouse_mult": 1.25,
+  "randomness": 15,
+  "current_weapon": "ak",
+  "weapons": {
+    "ak": {"name": "Assault Rifle", "type": "assault"},
+    "lr300": {"name": "LR-300", "type": "assault"},
+    "mp5": {"name": "MP5A4", "type": "smg"},
+    "tommy": {"name": "Thompson", "type": "smg"},
+    "m249": {"name": "M249", "type": "lmg"},
+    "m92": {"name": "M92 Pistol", "type": "pistol"},
+    "spas12": {"name": "SPAS-12", "type": "shotgun"},
+    "python": {"name": "Python Revolver", "type": "pistol"},
+    "custom_smg": {"name": "Custom SMG", "type": "smg"},
+    "sar": {"name": "SAR", "type": "assault"},
+    "hmlmg": {"name": "HMLMG", "type": "lmg"},
+    "m39": {"name": "M39 Rifle", "type": "rifle"},
+    "pump": {"name": "Pump Shotgun", "type": "shotgun"},
+    "m39_rifle": {"name": "M39 Rifle", "type": "sniper"},
+    "l96": {"name": "L96", "type": "sniper"},
+    "bolt": {"name": "Bolt Rifle", "type": "sniper"}
+  }
+}

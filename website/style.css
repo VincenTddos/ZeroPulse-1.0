@@ -1,0 +1,374 @@
+/* ===== 全域樣式 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== 導航列 ===== */
+.navbar {
+    background-color: #1a1a1a;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #333;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff88;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00ff88;
+}
+
+.btn-login {
+    background-color: #00ff88;
+    color: black;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-login:hover {
+    background-color: #00dd66;
+}
+
+/* ===== Hero 區域 ===== */
+.hero {
+    padding: 100px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    border-bottom: 2px solid #00ff88;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: #00ff88;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+.hero .subtitle {
+    font-size: 24px;
+    color: #ffaa00;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    margin: 30px 0;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.laser-animation {
+    font-size: 20px;
+    color: #00ff88;
+    animation: laser-pulse 2s infinite;
+    letter-spacing: 2px;
+}
+
+@keyframes laser-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.hero-desc {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.btn-buy {
+    background-color: #00ff88;
+    color: black;
+    padding: 15px 50px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-buy:hover {
+    background-color: #00dd66;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+/* ===== 功能區域 ===== */
+.features {
+    padding: 80px 0;
+    background-color: #0a0a0a;
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #00ff88;
+    margin-bottom: 50px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    border-color: #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    transform: translateY(-5px);
+}
+
+.feature-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: #00ff88;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #999;
+    font-size: 14px;
+}
+
+/* ===== 價格區域 ===== */
+.pricing {
+    padding: 80px 0;
+    background-color: #1a1a1a;
+}
+
+.pricing h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #00ff88;
+    margin-bottom: 50px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.pricing-card {
+    background-color: #2d2d2d;
+    padding: 40px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.pricing-card:hover {
+    border-color: #00ff88;
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+}
+
+.pricing-card.featured {
+    border-color: #00ff88;
+    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    transform: scale(1.05);
+}
+
+.pricing-card .badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00ff88;
+    color: black;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.pricing-card h3 {
+    font-size: 24px;
+    color: #00ff88;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 48px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.price span {
+    font-size: 18px;
+    color: #999;
+}
+
+.save {
+    color: #00ff88;
+    margin-bottom: 20px;
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.pricing-card li {
+    padding: 10px 0;
+    color: #ccc;
+    border-bottom: 1px solid #444;
+}
+
+.pricing-card li:last-child {
+    border-bottom: none;
+}
+
+.btn-purchase {
+    background-color: #00ff88;
+    color: black;
+    padding: 12px 30px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.btn-purchase:hover {
+    background-color: #00dd66;
+}
+
+/* ===== FAQ 區域 ===== */
+.faq {
+    padding: 80px 0;
+    background-color: #0a0a0a;
+}
+
+.faq h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #00ff88;
+    margin-bottom: 50px;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.faq-item {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.faq-item h4 {
+    color: #00ff88;
+    margin-bottom: 15px;
+}
+
+.faq-item p {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ===== 頁尾 ===== */
+footer {
+    background-color: #1a1a1a;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+    color: #666;
+}
+
+footer a {
+    color: #00ff88;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== 響應式設計 ===== */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero .subtitle {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+
+    .features-grid,
+    .pricing-grid,
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}

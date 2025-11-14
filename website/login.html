@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroPulse 會員登入</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-container {
+            background-color: #1a1a1a;
+            border: 2px solid #00ff88;
+            border-radius: 8px;
+            padding: 50px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .login-container h1 {
+            color: #00ff88;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #00ff88;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background-color: #2d2d2d;
+            border: 1px solid #333;
+            color: #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background-color: #00ff88;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-login:hover {
+            background-color: #00dd66;
+            transform: scale(1.02);
+        }
+
+        .btn-back {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-back a {
+            color: #00ff88;
+            text-decoration: none;
+        }
+
+        .btn-back a:hover {
+            text-decoration: underline;
+        }
+
+        .test-serial {
+            background-color: #2d2d2d;
+            border: 1px solid #444;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .test-serial p {
+            margin-bottom: 8px;
+        }
+
+        .test-serial code {
+            background-color: #1a1a1a;
+            color: #00ff88;
+            padding: 5px 10px;
+            border-radius: 2px;
+            font-family: 'Courier New';
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>ZeroPulse 登入</h1>
+        
+        <form onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="serial">序號激活碼</label>
+                <input type="text" id="serial" placeholder="例: ZP-M-XXXX-XXXX-XXXX" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hwid">HWID (自動偵測)</label>
+                <input type="text" id="hwid" readonly placeholder="系統自動偵測">
+            </div>
+
+            <button type="submit" class="btn-login">登入並下載</button>
+        </form>
+
+        <div class="test-serial">
+            <p><strong>【測試序號】</strong></p>
+            <p>月費: <code>ZP-M-TEST-1234</code></p>
+            <p>季費: <code>ZP-Q-TEST-5678</code></p>
+            <p>終身: <code>ZP-L-TEST-9999</code></p>
+        </div>
+
+        <div class="btn-back">
+            <a href="index.html">← 回首頁</a>
+        </div>
+    </div>
+
+    <script>
+        // 模擬 HWID 偵測
+        function getHWID() {
+            // 實際應用會讀取主機板序號
+            return 'HWID-' + Math.random().toString(36).substring(7).toUpperCase();
+        }
+
+        // 初始化
+        document.getElementById('hwid').value = getHWID();
+
+        // 序號驗證邏輯
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const serial = document.getElementById('serial').value;
+            const hwid = document.getElementById('hwid').value;
+
+            // 簡單驗證
+            if (!serial.startsWith('ZP-')) {
+                alert('❌ 序號格式錯誤！\n序號應以 ZP- 開頭');
+                return;
+            }
+
+            // 驗證測試序號
+            const testSerials = ['ZP-M-TEST-1234', 'ZP-Q-TEST-5678', 'ZP-L-TEST-9999'];
+            if (testSerials.includes(serial)) {
+                alert(`
+✓ 序號驗證成功！
+序號: ${serial}
+HWID: ${hwid}
+
+【已激活】
+您可以下載 ZeroPulse.exe 開始使用！
+
+下載連結: https://zeropulse.club/download
+
+使用提示:
+1. 進入 Rust 遊戲
+2. 執行 ZeroPulse.exe
+3. 選擇武器和設定
+4. 按 Script ON → 開始壓槍！
+                `);
+                // 模擬下載跳轉
+                // window.location.href = 'https://zeropulse.club/download/ZeroPulse.exe';
+            } else {
+                alert('❌ 序號無效或已過期！\n請聯絡客服重新取得序號');
+            }
+        }
+    </script>
+</body>
+</html>
