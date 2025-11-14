@@ -1,0 +1,295 @@
+================================================================
+  📋 ZeroPulse 1.0 - 完整檔案導覽
+================================================================
+
+【🎯 推薦起點】
+
+👉 START_HERE.txt
+   = 專案總覽 (你現在應該讀這個!)
+
+👉 QUICK_START.txt  
+   = 30秒快速開始 (趕時間的人讀這個)
+
+👉 run_gui.bat
+   = 一鍵啟動 (雙擊即開)
+
+================================================================
+
+【📁 項目結構詳解】
+
+zeropulse.club/
+│
+├─ 【網站相關】
+│  ├─ website/
+│  │  ├─ index.html      ← 首頁 (功能介紹 + 價格方案)
+│  │  ├─ login.html      ← 登入頁 (序號驗證)
+│  │  ├─ style.css       ← 樣式表 (暗黑風格)
+│  │  └─ script.js       ← JavaScript邏輯
+│  │
+│  └─ 🎨 預覽: 
+│     在瀏覽器開啟 website/index.html
+│     或用 Python: python -m http.server 8000
+│     然後訪問 http://localhost:8000/website
+│
+├─ 【客戶端相關】
+│  ├─ client/
+│  │  ├─ gui.py          ← GUI 主程式 (100% 複製 Purge)
+│  │  ├─ main.py         ← 核心邏輯 (17把槍彈道)
+│  │  └─ config.json     ← 設定檔 (武器 + 參數)
+│  │
+│  └─ 🚀 執行:
+│     python client/gui.py
+│     或雙擊 run_gui.bat
+│
+├─ 【後端相關】
+│  ├─ server/
+│  │  ├─ index.js        ← Express API 伺服器
+│  │  └─ package.json    ← Node.js 依賴
+│  │
+│  └─ ⚙️  啟動:
+│     npm install
+│     npm start
+│     訪問 http://localhost:3000/health
+│
+├─ 【文檔相關】
+│  ├─ docs/
+│  │  └─ DEPLOY_GUIDE.md ← 5分鐘部署教學
+│  │
+│  ├─ README.md          ← 專案完整說明
+│  ├─ PROJECT_SUMMARY.txt ← 項目總結
+│  ├─ QUICK_START.txt    ← 快速開始
+│  └─ START_HERE.txt     ← 主要進入 (你現在讀的!)
+│
+├─ 【工具】
+│  ├─ run_gui.bat        ← 一鍵啟動 GUI
+│  ├─ build.bat          ← 一鍵打包 EXE
+│  └─ requirements.txt   ← Python 依賴列表
+│
+├─ 【資源】
+│  └─ assets/            ← 資源檔案夾 (圖示等)
+│
+├─ 【舊檔案 (保留)】
+│  ├─ index.html         ← 預設頁面 (可刪)
+│  └─ dashboard.html     ← 預設頁面 (可刪)
+│
+└─ .git/                 ← Git 版本控制
+
+================================================================
+
+【🎮 使用流程圖】
+
+客戶購買流程:
+─────────────────────────────────────────────────
+1. 客戶進 website/index.html (或你部署的網站)
+   ↓
+2. 看功能介紹 + 價格方案
+   ↓
+3. 點「立即購買」→ 選擇方案
+   ↓
+4. 聯絡你 (Discord/郵件) → 付款
+   ↓
+5. 你發送序號 (如: ZP-M-XXXX-1234)
+   ↓
+6. 客戶進 website/login.html 驗證序號
+   ↓
+7. 驗證成功 → 下載 ZeroPulse.exe
+   ↓
+8. 執行 .exe → 進 Rust → 開始壓槍！
+─────────────────────────────────────────────────
+
+================================================================
+
+【🧪 測試序號】(複製用)
+
+開發測試用序號 (已內建在系統):
+
+月費版:  ZP-M-TEST-1234
+季費版:  ZP-Q-TEST-5678
+終身版:  ZP-L-TEST-9999
+
+測試方法:
+1. 執行 client/gui.py
+2. 點「驗證序號」
+3. 複製貼上上面任一序號
+4. 點驗證 → 應該顯示「✓ 序號驗證成功」
+5. 成功！可以開始測試壓槍功能
+
+================================================================
+
+【⚡ 快速命令】
+
+進入專案目錄:
+  cd c:\Users\User\Desktop\zeropulse.club
+
+啟動 GUI:
+  python client/gui.py
+
+啟動 API (可選):
+  cd server && npm install && npm start
+
+啟動網頁伺服器 (預覽網站):
+  python -m http.server 8000
+  → 訪問 http://localhost:8000/website
+
+打包 EXE:
+  pyinstaller --onefile --windowed --name "ZeroPulse" client/gui.py
+  → 輸出在 dist/ZeroPulse.exe
+
+安裝依賴:
+  pip install -r requirements.txt
+
+================================================================
+
+【🔧 自訂配置】
+
+改價格:
+  └─ 編輯 website/index.html
+  └─ 搜尋 "NT$399" / "NT$999" / "NT$2999"
+  └─ 修改數字
+
+改公司名稱:
+  └─ 全域搜尋 "ZeroPulse" 替換
+
+改 GUI 顏色:
+  └─ client/gui.py 中的 bg="#xxxx"
+
+新增序號:
+  └─ server/index.js 中的 validSerials 物件
+
+================================================================
+
+【📊 檔案大小】
+
+project-summary:
+  - 網站代碼: ~500 行 HTML/CSS/JS
+  - 客戶端代碼: ~600 行 Python
+  - 後端代碼: ~100 行 Node.js
+  - 文檔: ~2000 行
+  - 總計: ~3200 行代碼 + 文檔
+
+磁碟佔用:
+  - 原始檔案: ~5 MB
+  - 打包 EXE: ~150 MB (含 Python 運行時)
+
+================================================================
+
+【✅ 檢查清單】
+
+啟動前檢查:
+  ☐ Python 已安裝 (python --version)
+  ☐ Node.js 已安裝 (node --version) - 可選
+  ☐ 網路連接正常
+
+首次執行:
+  ☐ 安裝 Python 依賴: pip install -r requirements.txt
+  ☐ 執行 GUI: python client/gui.py
+  ☐ 驗證序號 (用 ZP-M-TEST-1234)
+  ☐ 測試功能正常
+
+部署上線:
+  ☐ 在 Vercel 部署網站
+  ☐ 在 Railway 部署 API
+  ☐ 購買域名 (Namecheap)
+  ☐ 配置 DNS
+  ☐ 測試完整流程
+
+開始賣:
+  ☐ 開 Discord 伺服器
+  ☐ 錄製宣傳影片
+  ☐ 發表在社群媒體
+  ☐ 收取第一筆訂單！
+
+================================================================
+
+【🎯 下一步推薦】
+
+【5 分鐘內】
+1. 讀 START_HERE.txt (你現在的位置)
+2. 雙擊 run_gui.bat 測試 GUI
+3. 驗證序號 ZP-M-TEST-1234
+
+【30 分鐘內】
+1. 看 docs/DEPLOY_GUIDE.md
+2. 在 Vercel 部署網站
+3. 在 Railway 部署 API
+
+【今天內】
+1. 買 zeropulse.club 域名
+2. 配置 DNS
+3. 錄製 AK 激光影片
+
+【本週內】
+1. 開 Discord 伺服器
+2. 上傳 YouTube/TikTok
+3. 在 UnknownCheats 發文
+4. 收到第一個客戶！
+
+【本月內】
+1. 推廣 ZeroPulse 品牌
+2. 加入 ESL Randomness + 人化抖動
+3. 規劃硬體版本 (ESP32)
+4. 月收 NT$30,000+！
+
+================================================================
+
+【❓ 需要幫助?】
+
+常見問題:
+  → 看 README.md 或 docs/DEPLOY_GUIDE.md
+
+GUI 無法開啟:
+  → 檢查 Python 版本: python --version (需 3.8+)
+  → 安裝依賴: pip install pyautogui psutil
+
+序號驗證失敗:
+  → 用測試序號: ZP-M-TEST-1234
+  → 檢查 server/index.js 中的 validSerials
+
+網站無法顯示:
+  → 用 Python 伺服器: python -m http.server 8000
+  → 訪問 http://localhost:8000/website/index.html
+
+API 無法連線:
+  → npm install (安裝依賴)
+  → npm start (啟動伺服器)
+  → 訪問 http://localhost:3000/health
+
+================================================================
+
+【📞 聯絡方式】
+
+商業合作:
+  → 在 GitHub 開 Issue
+  → 或發郵件到 support@zeropulse.club
+
+技術支援:
+  → 看 docs/ 文件夾
+  → 或檢查 README.md
+
+反饋意見:
+  → 歡迎在 GitHub 提交 PR
+  → 或開 Discussion
+
+================================================================
+
+【🎊 完成！】
+
+你現在有:
+✅ 完整銷售網站
+✅ 專業客戶端 GUI
+✅ 雲端驗證系統
+✅ 17 把槍壓槍腳本
+✅ 部署教學文檔
+✅ 一鍵打包工具
+
+可以開始:
+✨ 部署到線上
+✨ 開 Discord 伺服器
+✨ 錄製宣傳影片
+✨ 開始收訂單！
+
+═══════════════════════════════════════════════════════════════
+
+現在就開始吧！祝你成為 Rust 外掛界的傳奇！🚀
+
+═══════════════════════════════════════════════════════════════
