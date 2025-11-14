@@ -5,11 +5,22 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #0a0a0a;
+    background-color: #0f0f0f;
     color: #e0e0e0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
 .container {
@@ -20,233 +31,316 @@ body {
 
 /* ===== 導航列 ===== */
 .navbar {
-    background-color: #1a1a1a;
-    padding: 15px 0;
+    background: linear-gradient(180deg, rgba(15, 15, 15, 0.95) 0%, rgba(15, 15, 15, 0.85) 100%);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
     position: sticky;
     top: 0;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
     z-index: 100;
 }
 
-.navbar .container {
+.navbar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #00ff88;
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 40px;
     align-items: center;
 }
 
 .nav-links a {
     color: #e0e0e0;
     text-decoration: none;
-    transition: color 0.3s;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #00ff88;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
     color: #00ff88;
 }
 
+.btn-discord {
+    background-color: #5865F2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+.btn-discord:hover {
+    background-color: #4752c4;
+}
+
 .btn-login {
     background-color: #00ff88;
     color: black;
-    padding: 8px 20px;
-    border-radius: 4px;
-    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: 600;
 }
 
 .btn-login:hover {
     background-color: #00dd66;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
 }
 
 /* ===== Hero 區域 ===== */
 .hero {
-    padding: 100px 0;
+    position: relative;
+    padding: 150px 0;
+    background: linear-gradient(180deg, rgba(15, 15, 15, 1) 0%, rgba(20, 25, 35, 1) 100%);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 200, 136, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
     text-align: center;
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-    border-bottom: 2px solid #00ff88;
+    color: white;
 }
 
-.hero h1 {
-    font-size: 48px;
+.hero-title {
+    font-size: 72px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #00ff88 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 60px rgba(0, 255, 136, 0.3);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 32px;
     color: #00ff88;
-    margin-bottom: 10px;
-    text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
-}
-
-.hero .subtitle {
-    font-size: 24px;
-    color: #ffaa00;
     margin-bottom: 30px;
+    font-weight: 600;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
 }
 
-.hero-image {
-    margin: 30px 0;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.laser-animation {
-    font-size: 20px;
-    color: #00ff88;
-    animation: laser-pulse 2s infinite;
-    letter-spacing: 2px;
-}
-
-@keyframes laser-pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-}
-
-.hero-desc {
-    font-size: 16px;
-    color: #888;
-    margin-bottom: 30px;
-}
-
-.btn-buy {
-    background-color: #00ff88;
-    color: black;
-    padding: 15px 50px;
+.hero-description {
     font-size: 18px;
-    font-weight: bold;
+    color: #bbb;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+.btn-buy-large {
+    background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+    color: black;
+    padding: 18px 60px;
+    font-size: 18px;
+    font-weight: 700;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.btn-buy:hover {
-    background-color: #00dd66;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+.btn-buy-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 255, 136, 0.5);
 }
 
-/* ===== 功能區域 ===== */
-.features {
-    padding: 80px 0;
-    background-color: #0a0a0a;
+.btn-buy-large:active {
+    transform: translateY(-1px);
 }
 
-.features h2 {
+/* ===== 功能區塊 ===== */
+.section-header {
     text-align: center;
-    font-size: 36px;
+    margin-bottom: 80px;
+}
+
+.section-header h2 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.section-header p {
+    font-size: 18px;
     color: #00ff88;
-    margin-bottom: 50px;
+}
+
+.features {
+    padding: 120px 0;
+    background-color: #0f0f0f;
+    position: relative;
+}
+
+.features::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
 }
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
 }
 
 .feature-card {
-    background-color: #1a1a1a;
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid #333;
-    transition: all 0.3s;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(0, 200, 136, 0.02) 100%);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
 .feature-card:hover {
     border-color: #00ff88;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 255, 136, 0.15);
     transform: translateY(-5px);
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 200, 136, 0.05) 100%);
 }
 
-.feature-card .icon {
-    font-size: 40px;
-    margin-bottom: 15px;
+.feature-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
 }
 
 .feature-card h3 {
     color: #00ff88;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 .feature-card p {
     color: #999;
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.7;
 }
 
-/* ===== 價格區域 ===== */
+/* ===== 價格區塊 ===== */
 .pricing {
-    padding: 80px 0;
-    background-color: #1a1a1a;
+    padding: 120px 0;
+    background-color: #111111;
+    position: relative;
 }
 
-.pricing h2 {
-    text-align: center;
-    font-size: 36px;
-    color: #00ff88;
-    margin-bottom: 50px;
+.pricing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
 }
 
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
+    margin-top: 60px;
 }
 
 .pricing-card {
-    background-color: #2d2d2d;
-    padding: 40px;
-    border-radius: 8px;
-    border: 2px solid #333;
+    background: linear-gradient(135deg, rgba(30, 30, 30, 1) 0%, rgba(25, 25, 25, 1) 100%);
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    border-radius: 12px;
+    padding: 50px 40px;
     text-align: center;
+    transition: all 0.3s ease;
     position: relative;
-    transition: all 0.3s;
 }
 
 .pricing-card:hover {
     border-color: #00ff88;
+    box-shadow: 0 15px 50px rgba(0, 255, 136, 0.2);
     transform: translateY(-10px);
-    box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
 }
 
 .pricing-card.featured {
     border-color: #00ff88;
-    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(30, 30, 30, 1) 100%);
+    box-shadow: 0 10px 40px rgba(0, 255, 136, 0.15);
     transform: scale(1.05);
 }
 
-.pricing-card .badge {
+.pricing-badge {
     position: absolute;
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #00ff88;
+    background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
     color: black;
-    padding: 5px 15px;
+    padding: 8px 20px;
     border-radius: 20px;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 12px;
+    text-transform: uppercase;
 }
 
-.pricing-card h3 {
-    font-size: 24px;
+.pricing-header h3 {
     color: #00ff88;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
 .price {
-    font-size: 48px;
-    color: #fff;
+    font-size: 52px;
+    font-weight: 700;
+    color: white;
     margin-bottom: 10px;
-    font-weight: bold;
 }
 
 .price span {
@@ -256,110 +350,279 @@ body {
 
 .save {
     color: #00ff88;
-    margin-bottom: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-size: 14px;
 }
 
-.pricing-card ul {
+.features-list {
     list-style: none;
     margin: 30px 0;
     text-align: left;
 }
 
-.pricing-card li {
-    padding: 10px 0;
+.features-list li {
+    padding: 12px 0;
     color: #ccc;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid rgba(0, 255, 136, 0.05);
+    font-size: 15px;
 }
 
-.pricing-card li:last-child {
+.features-list li:last-child {
     border-bottom: none;
 }
 
 .btn-purchase {
-    background-color: #00ff88;
-    color: black;
-    padding: 12px 30px;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
     width: 100%;
-    margin-top: 20px;
-    transition: all 0.3s;
+    padding: 15px;
+    background-color: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+    border: 2px solid #00ff88;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-purchase:hover {
+    background-color: #00ff88;
+    color: black;
+}
+
+.btn-purchase.featured {
+    background-color: #00ff88;
+    color: black;
+    border-color: #00ff88;
+}
+
+.btn-purchase.featured:hover {
     background-color: #00dd66;
+    border-color: #00dd66;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
 }
 
-/* ===== FAQ 區域 ===== */
+/* ===== FAQ 區塊 ===== */
 .faq {
-    padding: 80px 0;
-    background-color: #0a0a0a;
+    padding: 120px 0;
+    background-color: #0f0f0f;
+    position: relative;
 }
 
-.faq h2 {
-    text-align: center;
-    font-size: 36px;
-    color: #00ff88;
-    margin-bottom: 50px;
+.faq::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
 }
 
 .faq-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    margin-top: 60px;
 }
 
 .faq-item {
-    background-color: #1a1a1a;
-    padding: 25px;
-    border-radius: 8px;
-    border: 1px solid #333;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(0, 200, 136, 0.02) 100%);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: #00ff88;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 200, 136, 0.05) 100%);
 }
 
 .faq-item h4 {
     color: #00ff88;
     margin-bottom: 15px;
+    font-size: 18px;
 }
 
 .faq-item p {
     color: #999;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.7;
+}
+
+/* ===== 統計區塊 ===== */
+.metrics {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(0, 200, 136, 0.02) 100%);
+    border-top: 1px solid rgba(0, 255, 136, 0.1);
+    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.metric-card {
+    text-align: center;
+}
+
+.metric-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #00ff88;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.metric-label {
+    color: #bbb;
+    font-size: 18px;
+}
+
+/* ===== 電子報區塊 ===== */
+.newsletter {
+    padding: 100px 0;
+    background: linear-gradient(180deg, rgba(15, 15, 15, 1) 0%, rgba(20, 25, 35, 1) 100%);
+}
+
+.newsletter-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-content h2 {
+    font-size: 42px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.newsletter-content > p {
+    color: #999;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+}
+
+.newsletter-form input::placeholder {
+    color: #666;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+.newsletter-form button {
+    padding: 15px 40px;
+    background-color: #00ff88;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #00dd66;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+.newsletter-note {
+    color: #666;
+    font-size: 12px;
 }
 
 /* ===== 頁尾 ===== */
 footer {
-    background-color: #1a1a1a;
+    background-color: #0a0a0a;
+    border-top: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 60px 0;
+}
+
+.footer-section h4 {
+    color: #00ff88;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #00ff88;
+}
+
+.footer-section p {
+    color: #999;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(0, 255, 136, 0.1);
     padding: 30px 0;
     text-align: center;
-    border-top: 1px solid #333;
     color: #666;
-}
-
-footer a {
-    color: #00ff88;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
+    font-size: 14px;
 }
 
 /* ===== 響應式設計 ===== */
 @media (max-width: 768px) {
-    .hero h1 {
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .hero-subtitle {
+        font-size: 24px;
+    }
+
+    .section-header h2 {
         font-size: 32px;
     }
 
-    .hero .subtitle {
-        font-size: 18px;
-    }
-
     .nav-links {
-        gap: 15px;
-        font-size: 14px;
+        gap: 20px;
+        flex-wrap: wrap;
     }
 
     .pricing-card.featured {
@@ -368,7 +631,69 @@ footer a:hover {
 
     .features-grid,
     .pricing-grid,
-    .faq-grid {
+    .faq-grid,
+    .metrics-grid {
         grid-template-columns: 1fr;
     }
+
+    .container-fluid {
+        padding: 0 20px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .btn-buy-large {
+        padding: 14px 40px;
+        font-size: 16px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+/* ===== 動畫 ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card,
+.pricing-card,
+.faq-item {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.pricing-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.pricing-card:nth-child(3) {
+    animation-delay: 0.2s;
 }

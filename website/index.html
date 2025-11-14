@@ -3,112 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZeroPulse 2.0 - Rust No Recoil</title>
+    <title>ZeroPulse - Rust No Recoil Script</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 導航 -->
+    <!-- 頂部導航列 -->
     <nav class="navbar">
-        <div class="container">
-            <div class="logo">ZeroPulse 2.0</div>
-            <ul class="nav-links">
-                <li><a href="#features">功能</a></li>
-                <li><a href="#pricing">價格</a></li>
-                <li><a href="#faq">常見問題</a></li>
-                <li><a href="login.html" class="btn-login">登入</a></li>
-            </ul>
+        <div class="container-fluid">
+            <div class="navbar-content">
+                <div class="logo">ZeroPulse</div>
+                <ul class="nav-links">
+                    <li><a href="#features">功能</a></li>
+                    <li><a href="#pricing">價格</a></li>
+                    <li><a href="#faq">常見問題</a></li>
+                    <li><a href="https://discord.gg/zeropulse" class="btn-discord">Discord</a></li>
+                    <li><a href="login.html" class="btn-login">登入</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- 首頁 Hero 區域 -->
+    <!-- 首頁 Hero 區域 (全屏) -->
     <section class="hero">
-        <div class="container">
-            <h1>ZeroPulse 2.0</h1>
-            <p class="subtitle">零後座 · 自動偵測 · 17把槍</p>
-            <div class="hero-image">
-                <div class="laser-animation">█████████████████</div>
+        <div class="hero-bg"></div>
+        <div class="container-fluid">
+            <div class="hero-content">
+                <h1 class="hero-title">釋放你的真實潛力</h1>
+                <p class="hero-subtitle">最佳 Rust 壓槍腳本</p>
+                <p class="hero-description">
+                    ZeroPulse 是專為 Rust 設計的高精度壓槍腳本<br>
+                    無硬體需求 · 自動偵測 · 17把槍支援 · 雲端驗證
+                </p>
+                <button class="btn-buy-large" onclick="scrollToPricing()">立即購買</button>
             </div>
-            <p class="hero-desc">官方級壓槍腳本 | 無硬體需求 | 雲端驗證 | 低風險</p>
-            <button class="btn-buy" onclick="scrollToPricing()">立即購買</button>
         </div>
     </section>
 
-    <!-- 功能介紹 -->
+
+    <!-- 功能區塊 -->
     <section id="features" class="features">
-        <div class="container">
-            <h2>核心功能</h2>
+        <div class="container-fluid">
+            <div class="section-header">
+                <h2>為什麼選擇 ZeroPulse?</h2>
+                <p>業界領先的壓槍技術</p>
+            </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="icon">🎯</div>
-                    <h3>17把槍完全支援</h3>
-                    <p>AK、LR300、MP5、Tommy、M249、霰彈槍、狙擊槍等全部武器</p>
+                    <div class="feature-icon">🎯</div>
+                    <h3>17把槍支援</h3>
+                    <p>完整支援所有 Rust 武器 | UC 2025 精準彈道</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon">🤖</div>
-                    <h3>自動偵測武器</h3>
-                    <p>換槍自動切換彈道 | 無需手動設定</p>
+                    <div class="feature-icon">🤖</div>
+                    <h3>自動偵測</h3>
+                    <p>換槍自動切換彈道 | 零延遲</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon">⬇️</div>
-                    <h3>站蹲自動切換</h3>
-                    <p>蹲壓自動減幅25-50% | 精密計算</p>
+                    <div class="feature-icon">⬇️</div>
+                    <h3>站蹲切換</h3>
+                    <p>自動判斷姿態 | 精密減幅</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon">🔄</div>
-                    <h3>Humanize 抖動</h3>
-                    <p>0-50% Randomness | 低風險掩蓋</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">☁️</div>
-                    <h3>雲端驗證</h3>
-                    <p>序號綁定 | 30秒心跳 | 防多開</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">💻</div>
+                    <div class="feature-icon">🛡️</div>
                     <h3>無硬體需求</h3>
-                    <p>純軟體 | 滑鼠移動補償 | 即插即用</p>
+                    <p>純軟體實現 | 即插即用</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3>雲端驗證</h3>
+                    <p>序號綁定 HWID | 防破解</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>官方級 GUI</h3>
+                    <p>100% 複製專業介面 | 專業設定</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 價格方案 -->
+    <!-- 價格區塊 -->
     <section id="pricing" class="pricing">
-        <div class="container">
-            <h2>價格方案</h2>
+        <div class="container-fluid">
+            <div class="section-header">
+                <h2>靈活的價格方案</h2>
+                <p>選擇最適合你的方案</p>
+            </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>月費</h3>
-                    <div class="price">NT$399 <span>/月</span></div>
-                    <ul>
+                    <div class="pricing-header">
+                        <h3>月費方案</h3>
+                    </div>
+                    <div class="price">NT$399<span>/月</span></div>
+                    <ul class="features-list">
                         <li>✓ 17把槍支援</li>
                         <li>✓ 自動武器偵測</li>
                         <li>✓ 雲端驗證</li>
                         <li>✓ Discord 支援</li>
+                        <li>✓ 定期更新</li>
                     </ul>
                     <button class="btn-purchase" onclick="purchase('month')">購買</button>
                 </div>
                 <div class="pricing-card featured">
-                    <div class="badge">推薦</div>
-                    <h3>季費</h3>
-                    <div class="price">NT$999 <span>/季</span></div>
-                    <p class="save">省 NT$200</p>
-                    <ul>
+                    <div class="pricing-badge">推薦</div>
+                    <div class="pricing-header">
+                        <h3>季費方案</h3>
+                    </div>
+                    <div class="price">NT$999<span>/季</span></div>
+                    <div class="save">省 NT$200</div>
+                    <ul class="features-list">
                         <li>✓ 17把槍支援</li>
                         <li>✓ 自動武器偵測</li>
                         <li>✓ 雲端驗證</li>
                         <li>✓ Discord 優先支援</li>
+                        <li>✓ 定期更新</li>
                     </ul>
-                    <button class="btn-purchase" onclick="purchase('quarter')">購買</button>
+                    <button class="btn-purchase featured" onclick="purchase('quarter')">購買</button>
                 </div>
                 <div class="pricing-card">
-                    <h3>終身</h3>
-                    <div class="price">NT$2999 <span>一次</span></div>
-                    <ul>
+                    <div class="pricing-header">
+                        <h3>終身方案</h3>
+                    </div>
+                    <div class="price">NT$2,999<span>一次</span></div>
+                    <ul class="features-list">
                         <li>✓ 17把槍支援</li>
                         <li>✓ 自動武器偵測</li>
                         <li>✓ 永久更新</li>
                         <li>✓ VIP Discord 群組</li>
+                        <li>✓ 優先新功能</li>
                     </ul>
                     <button class="btn-purchase" onclick="purchase('lifetime')">購買</button>
                 </div>
@@ -116,39 +138,117 @@
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ 區塊 -->
     <section id="faq" class="faq">
-        <div class="container">
-            <h2>常見問題</h2>
+        <div class="container-fluid">
+            <div class="section-header">
+                <h2>常見問題</h2>
+                <p>快速了解 ZeroPulse</p>
+            </div>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h4>需要 ESP32 硬體嗎？</h4>
-                    <p>不需要。ZeroPulse 1.0 完全是軟體版本，使用滑鼠移動補償。未來推出硬體版本為選購。</p>
+                    <h4>需要硬體嗎?</h4>
+                    <p>不需要。ZeroPulse 是純軟體版本，無需任何硬體。</p>
                 </div>
                 <div class="faq-item">
-                    <h4>官方服安全嗎？</h4>
-                    <p>用 Randomness 15% 以上，像真人抖動，風險極低。私人伺服器 0 風險。</p>
+                    <h4>官方服安全嗎?</h4>
+                    <p>用 Randomness 15%+，風險極低。私人伺服器完全安全。</p>
                 </div>
                 <div class="faq-item">
-                    <h4>會被 EAC 檢測嗎？</h4>
-                    <p>記憶體讀取 + 滑鼠驅動程式層級低，檢測困難。但官方服請謹慎使用。</p>
+                    <h4>可以多台電腦用嗎?</h4>
+                    <p>序號綁定 HWID，一序號一電腦。需多台請聯絡客服。</p>
                 </div>
                 <div class="faq-item">
-                    <h4>可以多台電腦用嗎？</h4>
-                    <p>序號綁定 HWID（主機板序號），一個序號一台電腦。需要多台請聯絡客服。</p>
+                    <h4>多久更新一次?</h4>
+                    <p>每個 Rust wipe 或重大更新時更新彈道數據。</p>
                 </div>
+                <div class="faq-item">
+                    <h4>支援哪些槍?</h4>
+                    <p>完全支援所有 17 把槍：AK、LR300、MP5、Tommy 等。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>過期後怎麼樣?</h4>
+                    <p>序號過期自動停用。續費可直接激活新序號。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 統計數據區塊 -->
+    <section class="metrics">
+        <div class="container-fluid">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">17</div>
+                    <div class="metric-label">支援槍枝</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">99.9%</div>
+                    <div class="metric-label">彈道精準度</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">0ms</div>
+                    <div class="metric-label">回應延遲</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">24/7</div>
+                    <div class="metric-label">技術支援</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter 訂閱 -->
+    <section class="newsletter">
+        <div class="container-fluid">
+            <div class="newsletter-content">
+                <h2>訂閱我們的電子報</h2>
+                <p>獲取最新更新、新聞和優惠碼</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="輸入你的電子郵件" required>
+                    <button>訂閱</button>
+                </div>
+                <p class="newsletter-note">提交即表示你同意我們的隱私政策</p>
             </div>
         </div>
     </section>
 
     <!-- 頁尾 -->
     <footer>
-        <p>&copy; 2025 ZeroPulse. All rights reserved.</p>
-        <p>
-            <a href="#" onclick="alert('隱私政策'); return false;">隱私政策</a> | 
-            <a href="#" onclick="alert('服務條款'); return false;">服務條款</a> | 
-            <a href="mailto:support@zeropulse.club">聯絡支援</a>
-        </p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>快速連結</h4>
+                <ul>
+                    <li><a href="#features">功能</a></li>
+                    <li><a href="#pricing">價格</a></li>
+                    <li><a href="#faq">常見問題</a></li>
+                    <li><a href="https://www.youtube.com/@zeropulse" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>支援</h4>
+                <ul>
+                    <li><a href="https://discord.gg/zeropulse" target="_blank">Discord 24/7</a></li>
+                    <li><a href="mailto:support@zeropulse.club">聯絡支援</a></li>
+                    <li><a href="#">資源頁面</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>法律</h4>
+                <ul>
+                    <li><a href="#">服務條款</a></li>
+                    <li><a href="#">隱私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>聯絡方式</h4>
+                <p>📧 support@zeropulse.club</p>
+                <p>🎮 <a href="https://discord.gg/zeropulse">Discord 伺服器</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ZeroPulse. 版權所有。由 ZeroPulse Team 提供。</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
