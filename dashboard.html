@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <title>ZeroPulse 會員中心</title>
+  <style>
+    body { background:#0a0a0a; color:#00ff88; font-family:Arial; text-align:center; padding:40px; }
+    .card { background:#1a1a1a; padding:30px; border-radius:15px; max-width:600px; margin:20px auto; border:1px solid #00ff88; }
+    input, button { padding:12px; margin:10px; width:80%; font-size:16px; border-radius:8px; }
+    input { background:#222; color:#fff; border:1px solid #00ff88; }
+    button { background:#00ff88; color:black; border:none; cursor:pointer; font-weight:bold; }
+    button:hover { background:#00cc66; }
+    .download { display:none; margin-top:30px; }
+    .download a { color:#00ff88; text-decoration:underline; font-size:18px; }
+    .status { margin:15px 0; font-weight:bold; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size:42px; margin-bottom:20px;">ZeroPulse 會員中心</h1>
+  <div class="card">
+    <h3>輸入序號啟用</h3>
+    <input type="text" id="license" placeholder="ZP-XXXX-XXXX" />
+    <button onclick="activate()">啟用</button>
+    <p class="status" id="status"></p>
+  </div>
+
+  <div class="card download" id="downloadSection">
+    <h3>下載 ZeroPulse.exe</h3>
+    <p><a href="#" onclick="alert('下載成功！\n檔案已儲存到桌面')">點此下載（v1.0.0）</a></p>
+    <p>檔案大小：8.2 MB | 更新日期：2025-11-14</p>
+    <p style="color:#aaa; font-size:14px;">支援 AK / MP5 / M249 激光噴射</p>
+  </div>
+
+  <script>
+    function activate() {
+      const key = document.getElementById('license').value.trim();
+      if (key === 'ZP-TEST-1234' || key === 'ZP-FREE-2025') {
+        document.getElementById('status').innerHTML = '<span style="color:#00ff88">啟用成功！</span>';
+        document.getElementById('downloadSection').style.display = 'block';
+      } else {
+        document.getElementById('status').innerHTML = '<span style="color:#ff4444">序號錯誤</span>';
+      }
+    }
+  </script>
+</body>
+</html>

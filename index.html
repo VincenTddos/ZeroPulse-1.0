@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZeroPulse 1.0 - Rust 無後座神器</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0a;
+      color: #00ff88;
+      font-family: 'Exo 2', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    .logo { font-size: 48px; margin-bottom: 10px; }
+    .tagline { font-size: 20px; margin: 10px 0 30px; color: #00cc66; }
+    .features {
+      display: flex; justify-content: center; gap: 20px; margin: 40px 0; flex-wrap: wrap;
+    }
+    .feature {
+      background: #1a1a1a; padding: 15px 25px; border-radius: 25px; font-size: 14px; border: 1px solid #00ff88;
+    }
+    .demo {
+      margin: 50px 0;
+      padding: 20px;
+      background: #111;
+      border: 2px solid #00ff88;
+      border-radius: 15px;
+      display: inline-block;
+    }
+    .demo img {
+      width: 100%; max-width: 700px; border-radius: 10px; box-shadow: 0 0 20px #00ff8833;
+    }
+    .price { margin: 50px 0; }
+    .price button {
+      background: #00ff88; color: black; border: none; padding: 15px 35px;
+      font-size: 18px; font-weight: bold; margin: 0 12px; border-radius: 50px; cursor: pointer;
+      transition: 0.3s; min-width: 180px;
+    }
+    .price button:hover { background: #00cc66; transform: scale(1.05); }
+    footer {
+      margin-top: 80px; color: #666; font-size: 14px;
+    }
+    .discord { color: #00ff88; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="logo">ZeroPulse 1.0</div>
+  <div class="tagline">零後座 · 自動偵測 · 17 把槍激光噴射</div>
+
+  <div class="features">
+    <div class="feature">自動武器偵測</div>
+    <div class="feature">站蹲自動切換</div>
+    <div class="feature">官方級 GUI</div>
+    <div class="feature">雲端驗證</div>
+  </div>
+
+  <div class="demo">
+    <img src="https://i.imgur.com/5w2kR1j.gif" alt="AK 激光噴射" />
+    <p style="margin-top:10px; font-size:14px; color:#aaa;">AK-47 滿配激光噴射（實測 UKN）</p>
+  </div>
+
+  <div class="price">
+    <button onclick="buy('month')">NT$399 / 月</button>
+    <button onclick="buy('season')">NT$999 / 季</button>
+    <button onclick="buy('lifetime')">NT$2999 / 終身</button>
+  </div>
+
+  <footer>
+    © 2025 ZeroPulse | HWID 綁定 | 支援 Discord: 
+    <a href="#" class="discord" onclick="alert('加入 Discord: zeropulse.gg')">zeropulse.gg</a>
+  </footer>
+
+  <script>
+    function buy(plan) {
+      const prices = { month: "399", season: "999", lifetime: "2999" };
+      alert(`已選擇 ${plan} 方案！\n價格：NT$${prices[plan]}\n序號將發送到 Discord\n請加入：zeropulse.gg`);
+    }
+  </script>
+</body>
+</html>
