@@ -2,5 +2,5 @@ requirements.txt - Python 依賴
 
 pyautogui==0.9.53
 psutil==5.9.4
-requests==2.28.1
-pyinstaller==5.7.0
+requests==2.33.0
+pyinstaller==6.15.0
